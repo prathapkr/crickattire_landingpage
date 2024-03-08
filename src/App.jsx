@@ -1,8 +1,20 @@
-import './App.css'
-import { motion } from 'framer-motion'
+import './App.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 import logo from './logo.jpeg'; 
 
 const App = () => {
+  const [emailSent, setEmailSent] = useState(false);
+
+  const sendEmailNotification = () => {
+    toast.info('Please send an email to karthik@cricattire.com with your order details.', {
+      autoClose: false,
+    });
+  };
+
   const typingContainer = {
     hidden: { opacity: 0 },
     show: {
@@ -97,20 +109,6 @@ const App = () => {
     }
   }
 
-  const navText = {
-    hidden: {
-      opacity: 0,
-      y: '-10px',
-    },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        ease: "easeInOut"
-      }
-    }
-  }
-
   const starAnimation = {
     hidden: {
       opacity: 0,
@@ -126,23 +124,9 @@ const App = () => {
     }
   }
 
-  const starItem = {
-    hidden: {
-      opacity: 0,
-      x: '-100px',
-    },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 1.2,
-        ease: "easeIn"
-      }
-    }
-  }
-
   return (
     <div className='container'>
+      <ToastContainer /> {/* Include ToastContainer here */}
       <nav className='nav'>
         <motion.ul variants={navAnimation} initial="hidden" animate="show">
         </motion.ul>
@@ -166,7 +150,7 @@ const App = () => {
             </motion.p>
           </div>
           <div className='button'>
-            <motion.button className='btn-order' variants={buttonProduct} initial="hidden" animate="show">Order now</motion.button>
+            <motion.button className='btn-order' onClick={sendEmailNotification} variants={buttonProduct} initial="hidden" animate="show">Order now</motion.button>
           </div>
           <motion.div className='star-square' variants={starAnimation} initial="hidden" animate="show">
           </motion.div>
@@ -203,7 +187,7 @@ const App = () => {
         <p>Sat-Sun: Closed</p>
       </section>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
