@@ -5,8 +5,8 @@
   color: #0f0202;
   overflow: hidden;
   padding: 2rem;
+  background-color: #ffffff; /* White background */
 }
-
 
 .logo-container {
   position: absolute;
@@ -18,6 +18,7 @@
   width: 100px; /* Set the desired width */
   height: auto; /* Maintain aspect ratio */
 }
+
 .text {
   color: rgb(210, 41, 41);
   font-size: 3rem;
@@ -64,7 +65,7 @@
   width: 280px;
   position: absolute;
   top: 180px;
-  left: 220px;
+  left: 248px;
 }
 
 .explain-product {
@@ -119,7 +120,7 @@
 }
 
 .store-timing h2, .performance-wear h2, .contact-info h2 {
-  color: #0f0202;
+  color: #756d6d;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
